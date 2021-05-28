@@ -1,6 +1,20 @@
 import random
 import time
 
+# Implementation of binary search algorithm
+
+# We will prove that binary search is faster than naive search
+
+# Essence of binary search:
+#   If you have a sorted list and you want to seach this array for something,
+#   you could go through each item in the list and ask, is this equal to what
+#   we're looking for? 
+#   But we can make this *faster* by leaveraging the fact that our array is sorted
+#   Binary search ~ 0(log(n)), naive search ~ 0(n)
+
+# In this example, l is a list in ascending order, and target is something we're looking for
+# Return -1 if not found
+
 def naive_search(l, target):
     # example l = [1, 3, 10, 12]
     for i in range(len(l)):
