@@ -21,3 +21,16 @@ def binary_search(l, target, low = None, high = None):
 
     # example l = [1, 3, 5, 10, 12]     should return 3
     midpoint = (low + high) // 2    # 2
+
+    if l[midpoint] == target:
+        return midpoint
+    elif target < l[midpoint]:
+        return binary_search(l, target, low, midpoint - 1)
+    else:
+        # target > l[midpoint]
+        return binary_search(l, target, midpoint + 1, high)
+
+if __name__ == '__main__':
+    # l = [1, 3, 5, 10, 12]
+    # target = 7
+    print(naive_search(l, target))
