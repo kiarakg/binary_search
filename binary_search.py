@@ -15,6 +15,10 @@ import time
 # In this example, l is a list in ascending order, and target is something we're looking for
 # Return -1 if not found
 
+
+# naive search; scan entire list and ask if its equal to the target
+# if yes, return the index
+# if no, then return -1
 def naive_search(l, target):
     # example l = [1, 3, 10, 12]
     for i in range(len(l)):
@@ -23,7 +27,8 @@ def naive_search(l, target):
     
     return -1
 
-
+# binary search uses divide and conquer
+# we will leverage the fact that our list is SORTED
 def binary_search(l, target, low = None, high = None):
     if low is None:
         low = 0
@@ -36,6 +41,10 @@ def binary_search(l, target, low = None, high = None):
     # example l = [1, 3, 5, 10, 12]     should return 3
     midpoint = (low + high) // 2    # 2
 
+    # We'll check is l[midpoint] == target, and if not, we can find out if
+    #   target will be to the left or right of midpoint
+    # We know everything to the left of midpoint is smaller than the midpoint
+    #   and everything to the right is larger
     if l[midpoint] == target:
         return midpoint
     elif target < l[midpoint]:
@@ -47,8 +56,8 @@ def binary_search(l, target, low = None, high = None):
 if __name__ == '__main__':
     # l = [1, 3, 5, 10, 12]
     # target = 7
-    print(naive_search(l, target))
-    print(binary_search(l, target))
+    # print(naive_search(l, target))
+    # print(binary_search(l, target))
 
     length = 10000
     # build a sorted list of length
