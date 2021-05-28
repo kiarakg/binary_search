@@ -34,3 +34,11 @@ if __name__ == '__main__':
     # l = [1, 3, 5, 10, 12]
     # target = 7
     print(naive_search(l, target))
+    print(binary_search(l, target))
+
+    length = 10000
+    # build a sorted list of length
+    sorted_list = set()
+    while len(sorted_list) < length:
+        sorted_list.add(random.randint(-3 * length, 3 * length))
+    sorted_list = sorted(list(sorted_list))
